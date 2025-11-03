@@ -5,6 +5,8 @@ import Payment from "./components/Payment.vue";
 import Persons from "./components/Persons/Persons.vue";
 import PersonsP from "./components/Persons/PersonsP.vue";
 import ParentP from "./components/propsandemit/ParentP.vue";
+import PracticeFunction from "./components/test/practice_function.vue";
+import PracticeFunctionP from "./components/test/practice_functionP.vue";
 </script>
 
 <template>

@@ -1,30 +1,23 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const inputtingName = ref<string>("");
-const inputtingAge = ref<number>(0);
+const inputtingaAge = ref<number>(0);
+1;
 
-const emit = defineEmits(["register1"]);
-
-const register = () => {
+const emit = defineEmits(["regist-emit"]);
+const regist = () => {
   const person = {
     id: Math.random(),
-    name: inputtingName.value,
-    age: inputtingAge.value,
+    name: inputtingName,
+    age: inputtingaAge,
   };
-  console.log("person:" + person.name);
-  emit("register1", person);
+  emit("regist-emit", person);
 };
 </script>
 <template>
-  <div>
-    <span>name:</span>
-    <input type="text" v-model="inputtingName" />
-  </div>
-  <div>
-    <span>age:</span>
-    <input type="number" v-model="inputtingAge" />
-  </div>
-  <button @click="register">regist</button>
+  <input type="text" v-model="inputtingName" />
+  <input type="number" v-model="inputtingaAge" />
+  <button @click="regist">regist</button>
 </template>
 <style scoped></style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import PersonPostFormP from "./PersonPostFormP.vue";
 import PersonListP from "./PersonListP.vue";
+import PersonPostFormP from "./PersonPostFormP.vue";
 import { ref, type Ref } from "vue";
 
 export type Person = {
@@ -10,20 +10,22 @@ export type Person = {
 };
 
 const persons: Ref<Person[]> = ref([
-  { id: 0, name: "test1", age: 21 },
-  { id: 1, name: "test2", age: 22 },
+  { id: 1, name: "test1", age: 1 },
+  { id: 2, name: "test2", age: 2 },
 ]);
 
-const registerPerson = (person: Person) => {
+const regist = (person: Person) => {
   persons.value.push(person);
 };
 
-const delete2 = (id: number) => {
-  persons.value = persons.value.filter((p) => p.id !== id);
+const deleteT = (id: number) => {
+  persons.value = persons.value.filter((p) => {
+    return p.id !== id;
+  });
 };
 </script>
 <template>
-  <PersonPostFormP @register1="registerPerson" />
-  <PersonListP :persons="persons" @delete1="delete2" />
+  <PersonPostFormP @regist-emit="regist" />
+  <PersonListP :persons="persons" @delete-emit="deleteT" />
 </template>
 <style scoped></style>

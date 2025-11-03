@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import type { Person } from "./Persons.vue";
-
-type Props = {
+import { type Person } from "./PersonsP.vue";
+type prop = {
   persons: Person[];
 };
 
-defineProps<Props>();
-const emit = defineEmits(["delete1"]);
-
-const delete1 = (id: number) => {
-  if (confirm("Delete")) {
-    emit("delete1", id);
-  }
+defineProps<prop>();
+const emit = defineEmits(["delete-emit"]);
+const deleteT = (id: number) => {
+  emit("delete-emit", id);
 };
 </script>
 <template>
-  <li v-for="person in persons" :key="person.id">
-    <span>{{ person.name }}</span>
-    <span>age:{{ person.age }}</span>
-    <button @click="delete1(person.id)">delete</button>
+  <li v-for="person in persons">
+    {{ person.name }}
+    {{ person.age }}
+    <button @click="deleteT(person.id)">deleteT</button>
   </li>
 </template>
 <style scoped></style>
